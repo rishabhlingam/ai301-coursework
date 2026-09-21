@@ -45,7 +45,11 @@ https://github.com/codepath/pathreview-ai301-fa26-s1/issues/64
 
 **Run history**
 
-One run occurred. The first attempt at a full run did not complete: a Windows-specific `UnicodeEncodeError` (the `claude` subprocess's stdin defaulted to `cp1252`, which cannot encode emoji/unicode characters present in several bundles) crashed the writer thread for multiple items, so several issues returned `ERROR (claude exited 1: ...)` instead of a verdict. This was fixed by setting `PYTHONUTF8=1` before invoking the harness, which forces UTF-8 mode regardless of the console's codepage. The rubric itself was not changed between the failed attempt and the successful run, only the environment was fixed. The completed run scored **18/20 scored items (bar: 18/20: PASS)**, matching the agreement line in the committed `eval-run.txt`.
+One run occurred. The first attempt at a full run did not complete: a Windows-specific `UnicodeEncodeError` (the `claude` subprocess's stdin defaulted to `cp1252`, which cannot encode emoji/unicode characters present in several bundles) crashed the writer thread for multiple items, so several issues returned `ERROR (claude exited 1: ...)` instead of a verdict. This was fixed by setting `PYTHONUTF8=1` before invoking the harness, which forces UTF-8 mode regardless of the console's codepage.
+
+The initial rubric gave a score of 12/20, but I was not aware that I had to record all runs in sequence. Then I took almost 6 to 7 iterations where the score improved to 14, then 15, then 17. 
+
+The final run scored **18/20 scored items (bar: 18/20: PASS)**, matching the agreement line in the committed `eval-run.txt`.
 
 **Issue analysis**
 
